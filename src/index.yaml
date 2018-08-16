@@ -1,0 +1,5 @@
+ProjectTitle: side-navigation
+
+PageList:
+- file: page.html
+  ready: 50
