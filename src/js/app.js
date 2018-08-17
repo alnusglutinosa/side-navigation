@@ -1,8 +1,12 @@
 import sayHello from './lib/sayHello.js';
-// import './lib/fullSideNav.js';
+// import User from './lib/fullSideNav.js';
 import './lib/jquery.mousewheel.js';
 
 sayHello();
+
+
+var user = new User('User-1');
+user.sayHi();
 
 
 $(document).ready(function() {
