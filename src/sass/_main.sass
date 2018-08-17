@@ -1,7 +1,49 @@
+
+html, body 
+	height: 100%
+	width: 100%
+
+body 
+	font-size: 16px
+
+.wrapper
+	height: 100%
+	overflow: hidden
+
+.out
+	height: 100%
+	width: 100%	
+
+.maincontent
+	position: relative
+	height: 100%
+	width: 100%	
+	top: 0
+	transition: top 1s
+
+.page
+	height: 100%
+	width: 100%	
+	position: relative
+
+	&__container
+		position: absolute
+		top: 50%
+		left: 50%
+		font-size: 16px
+		text-align: center
+		transform: translate(-50%, -50%)
+
+.link.active 
+	color: red
+
+
 .container
 	max-width: 1200px
 	margin: 0 auto
 	padding: 0 15px
+
+
 
 .full-section
 	min-height: 100vh
@@ -55,3 +97,22 @@
 	height: 10px
 	margin: -5px 0 0 -5px
 
+
+.nav-top
+	z-index: 1
+	position: absolute
+
+	ul 
+		margin: 0
+		width: 100%
+		background: #fff
+		list-style-type: none
+		position: fixed
+		top: 0
+		left: 0
+		text-align: center
+
+
+	li 
+	    display: inline-block
+	    padding: 15px
