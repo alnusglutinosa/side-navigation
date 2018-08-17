@@ -54,21 +54,20 @@ function checkSection() {
       // console.log($this.data('section'));
 
       var reqLink = $('.link[href="#'+ currentId +'"]');
+      var rightLink = $('.fp-nav__link[href="#'+ currentId +'"]');
 
-      //выделяем активный линк
-      // reqLink.closest('item').addClass('active')  
-      //   .siblings().removeClass('active');
-
+      //выделяем активный линк топ
       $('.link').removeClass('active');
       reqLink.addClass('active');
+
+      //выделяем активный линк боковой
+      $('.fp-nav__link').removeClass('active');
+      	rightLink.addClass('active');
 
       window.location.hash = currentId;
     }
   });
 }
-
-
-
 
 
 
@@ -92,30 +91,49 @@ $(document).ready(function() {
   	checkSection();
   });
 
+
   $('.link').on('click', function(e) {
     e.preventDefault();
-
-    // // showSection($(this).attr('href'), true);
-    // var offset = $(this).offset(); //$('.link.active').offset();
     
     var idsect = $(this).attr('href');
     var direction = idsect.replace(/#/, '');
-  	var reqSection = $('section[data-section="'+ direction +'"]'); //$('.section[data-section="'+ direction +'"]'); 
-    // var reqSection = $('section[data-section="one"]').filter('[data-section="'+ direction +'"]');
-
+  	var reqSection = $('section[data-section="'+ direction +'"]'); 
   	var reqSectionPos = reqSection.offset().top;
-
-
-    // console.log(offset.left);
-    // console.log(offset.top);
-
 
     var reqLink = $('.link[href="#'+ idsect +'"]');
     $('.link').removeClass('active');
-    reqLink.addClass('active');
+    $(this).addClass('active');
+
+    // активный боковой нав
+    var topLink = $('.fp-nav__link[href="#'+ direction +'"]');
+    $('.fp-nav__link').removeClass('active');
+    topLink.addClass('active');
 
 
-    // mousescroll(-7);
+    var link_index = $(this).parent().index();
+
+    var screen = link_index;
+    var position = (-screen * 100) + '%';
+    container.css('top', position);
+
+  });
+
+  $('.fp-nav__link').on('click', function(e) {
+    e.preventDefault();
+    
+    var idsect = $(this).attr('href');
+    var direction = idsect.replace(/#/, '');
+  	var reqSection = $('section[data-section="'+ direction +'"]'); 
+  	var reqSectionPos = reqSection.offset().top;
+
+    var reqLink = $('.fp-nav__link[href="#'+ idsect +'"]');
+    $('.fp-nav__link').removeClass('active');
+    $(this).addClass('active');
+
+    // активный топ нав
+    var topLink = $('.link[href="#'+ direction +'"]');
+    $('.link').removeClass('active');
+    topLink.addClass('active');
 
     var link_index = $(this).parent().index();
 
